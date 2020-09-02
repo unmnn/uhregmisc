@@ -37,3 +37,8 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+.Rproj.user
+
+# regensburg data
+200622_uhreg.xlsx
+uhreg.rda

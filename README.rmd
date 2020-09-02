@@ -1,0 +1,100 @@
+---
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# uhregmisc
+
+Miscellaneous Helper Functions For The Univ. Regensburg Tinnitus Data.
+
+## Overview
+
+- `data-raw/uhreg.R`: preprocessing script for the raw UHREG data
+- datasets `uhreg` and `data_dict`
+- function `discretize_score()` for discretizing  a numeric questionnaire score according to predefined cutoff values from literature.
+
+## Installation
+
+```{r installation, eval=FALSE}
+remotes::install_github("unmnn/uhregmisc")
+```
+
+```{r load-uhregmisc}
+library(uhregmisc)
+```
+
+
+## Data preprocessing steps
+
+The script `data-raw/uhreg.R` preprocesses the UHREG data.
+
+- part of column name representing the questionnaire is written in caps
+- establish consistent name convention: prefix of variable name (part until first underscore) represents the name of the corresponding questionnaire
+  - example: `TQ_q01` &rarr; `TQ` questionnaire
+  - meta variables, e.g. patient ID or treatment type, have the prefix `.META`
+- some variables are renamed for consistency of chronology, e.g. `TSCHQ_q36_1_otologic_additional` instead of `TSCHQ_q361_otologic_additional`
+- abbreviations in names: `q` instead of `question`, `lvs` instead of `last_validation_status`
+  - example: `TBF12_q10` instead of `TBF12_question10`
+- in column names, zero-padding is added to allow for alphabetical ordering, e.g. `TBF12_q01` instead of `TBF12_q1` (there is also a `TBF12_q10`)
+- all BDI columns are removed due to complete missingness
+- variable types are converted where appropriate:
+  - `TSCHQ_q02_sex` to `factor`
+  - `.META_patient_id` to `character`
+  - `.META_visit_day`, `TSCHQ_q05_begin_tinnitus` to `date`
+- `-1` values are replaced with `NA_integer_` where appropriate
+- some (sub-)scales are created:
+  - TFI subscales: intrusive, sense of control, cognitive, sleep, auditory, relaxation, quality of life, emotional
+  - TQ subscales: emotional distress, cognitive distress, intrusiveness, auditory perceptual difficulties, sleep disturbances, somatic complaints
+  - MDI: depression categorization
+
+## Open questions
+
+- Why are there no data for the BDI questionnaire?
+- What does the `position` column represent?
+
+```
+   1    2    3
+2010  187  102
+```
+
+- What does the prefix "v_" mean in some column names, e.g. "v_tfi_question_1"?
+- How to deal with the huge variety of treatment pathways?
+
+```
+92 unique treatment pathways
+
+                        S-B-I-I-I-FV                               S-B-FV                            S-B-FV-FU
+                                  26                                   31                                   36
+                                B-FV                                    S
+                                  44                                  790
+```
+
+- Is there any documentation for the audiological assessment? There are a lot of negative values (e.g. -1 for AUDIO_duration) and "repdigits" (999, 99999) - I assume they have a special meaning.
+- What do the columns with "last_validation_status" mean? What do their values (-1, 0, 1) mean?
+- Documentation for "v_exp_tschq_q36_otologic" and "v_exp_tschq_q361_otologic_additional"
+
+## TODOS
+
+- Improve rudimentary documentation for `uhreg` and `data_dict`
+- Add function that dummifies categorical variables
+
+## `uhreg` overview
+
+```{r uhreg-skim, cache = TRUE}
+skimr::skim_without_charts(uhreg)
+```
+
+## `data_dict`
+
+```{r data_dict, message=FALSE}
+library(dplyr)
+library(purrr)
+data_dict
+
+var <- "TSCHQ_q09_perception"
+data_dict %>% filter(item == var) %>% pull(description)
+data_dict %>% filter(item == var) %>% pluck("value", 1)
+```
