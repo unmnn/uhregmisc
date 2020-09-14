@@ -2,6 +2,7 @@
 
 library(dplyr)
 library(tidyr)
+library(purrr)
 
 # dd_stem ----
 dd_stem <- tribble(
@@ -1347,4 +1348,4 @@ json <- data_dict %>%
   mutate(code = map(value, ~names(.x))) %>%
   mutate(meaning = map(value, ~.x)) %>%
   select(-value)
-jsonlite::write_json(json, "data/data_dict.json")
+jsonlite::write_json(json, "data/data_dict.json", pretty = TRUE)
