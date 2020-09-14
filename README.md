@@ -3,6 +3,10 @@
 
 Miscellaneous Helper Functions For The Univ. Regensburg Tinnitus Data.
 
+**Important:** For most of the functions to work, you would need to put
+into the `data-raw/` folder the original dataset (`200622_uhreg.xlsx`)
+which cannot be uploaded to GitHub due to copyright reasons.
+
 ## Overview
 
   - `data-raw/uhreg.R`: preprocessing script for the raw UHREG data
@@ -10,6 +14,7 @@ Miscellaneous Helper Functions For The Univ. Regensburg Tinnitus Data.
   - function `discretize_score()` for discretizing a numeric
     questionnaire score according to predefined cutoff values from
     literature.
+  - Shiny app to explore missingness / available data.
 
 ## Installation
 
@@ -19,6 +24,31 @@ remotes::install_github("unmnn/uhregmisc")
 
 ``` r
 library(uhregmisc)
+```
+
+## Shiny missingess data
+
+Provides an overview of missing data patterns. You can specify a data
+subset based on:
+
+  - visit type: screening, baseline, interim visit, final visit and/or
+    followup
+  - treatment (10 most frequent treatment types selectable)
+  - gender
+  - age range
+
+Additionally, you can choose to order questionnaires (y-axis) either by
+mutual missingness (determined by a hierarchical clustering) or just
+alphabetically by their name.
+
+### How to run app
+
+``` r
+# When running the first time, create the necessary pre-processed dataset with:
+source("app-ume/ume_prep-data.R")
+# Afterwards, the folder `app-ume` should contain a file `data.rds`.
+# Then, just run the app via:
+shiny::runApp("app-ume")
 ```
 
 ## Data preprocessing steps
@@ -93,6 +123,49 @@ The script `data-raw/uhreg.R` preprocesses the UHREG data.
 
   - Improve rudimentary documentation for `uhreg` and `data_dict`
   - Add function that dummifies categorical variables
+
+## `data_dict`
+
+``` r
+library(dplyr)
+library(purrr)
+data_dict
+```
+
+    ## # A tibble: 294 x 3
+    ##    item                         description    value     
+    ##    <chr>                        <chr>          <list>    
+    ##  1 .META_patient_id             Patient ID     <NULL>    
+    ##  2 .META_treatment_code         Treatment code <chr [75]>
+    ##  3 .META_visit_day              Day of visit   <NULL>    
+    ##  4 .META_visit_type             Type of visit  <chr [5]> 
+    ##  5 AUDIO_duration               <NA>           <NULL>    
+    ##  6 AUDIO_left_frequency_loss_01 <NA>           <NULL>    
+    ##  7 AUDIO_left_frequency_loss_02 <NA>           <NULL>    
+    ##  8 AUDIO_left_frequency_loss_03 <NA>           <NULL>    
+    ##  9 AUDIO_left_frequency_loss_04 <NA>           <NULL>    
+    ## 10 AUDIO_left_frequency_loss_05 <NA>           <NULL>    
+    ## # ... with 284 more rows
+
+``` r
+var <- "TSCHQ_q09_perception"
+data_dict %>% filter(item == var) %>% pull(description)
+```
+
+    ## [1] "Where do you perceive your tinnitus?"
+
+``` r
+data_dict %>% filter(item == var) %>% pluck("value", 1)
+```
+
+    ##                          -1                           0 
+    ##            "no information"                 "right ear" 
+    ##                           1                           2 
+    ##                  "left ear"  "both ears, worse in left" 
+    ##                           3                           4 
+    ## "both ears, worse in right"        "both ears, equally" 
+    ##                           5                           6 
+    ##           "inside the head"                 "elsewhere"
 
 ## `uhreg` overview
 
@@ -430,46 +503,3 @@ Data summary
 | WHOQOL\_q24                                               |       1037 |           0.55 |    3.87 |     0.89 |     1 |   3.00 |    4.00 |    4.00 |      5 |
 | WHOQOL\_q25                                               |       1041 |           0.55 |    4.27 |     0.83 |     1 |   4.00 |    4.00 |    5.00 |      5 |
 | WHOQOL\_q26                                               |       1024 |           0.55 |    3.21 |     1.04 |     1 |   2.00 |    3.00 |    4.00 |      5 |
-
-## `data_dict`
-
-``` r
-library(dplyr)
-library(purrr)
-data_dict
-```
-
-    ## # A tibble: 294 x 3
-    ##    item                         description    value    
-    ##    <chr>                        <chr>          <list>   
-    ##  1 .META_patient_id             Patient ID     <NULL>   
-    ##  2 .META_treatment_code         Treatment code <NULL>   
-    ##  3 .META_visit_day              Day of visit   <NULL>   
-    ##  4 .META_visit_type             Type of visit  <chr [5]>
-    ##  5 AUDIO_duration               <NA>           <NULL>   
-    ##  6 AUDIO_left_frequency_loss_01 <NA>           <NULL>   
-    ##  7 AUDIO_left_frequency_loss_02 <NA>           <NULL>   
-    ##  8 AUDIO_left_frequency_loss_03 <NA>           <NULL>   
-    ##  9 AUDIO_left_frequency_loss_04 <NA>           <NULL>   
-    ## 10 AUDIO_left_frequency_loss_05 <NA>           <NULL>   
-    ## # ... with 284 more rows
-
-``` r
-var <- "TSCHQ_q09_perception"
-data_dict %>% filter(item == var) %>% pull(description)
-```
-
-    ## [1] "Where do you perceive your tinnitus?"
-
-``` r
-data_dict %>% filter(item == var) %>% pluck("value", 1)
-```
-
-    ##                          -1                           0 
-    ##            "no information"                 "right ear" 
-    ##                           1                           2 
-    ##                  "left ear"  "both ears, worse in left" 
-    ##                           3                           4 
-    ## "both ears, worse in right"        "both ears, equally" 
-    ##                           5                           6 
-    ##           "inside the head"                 "elsewhere"

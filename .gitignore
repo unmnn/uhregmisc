@@ -42,3 +42,11 @@ vignettes/*.pdf
 # regensburg data
 200622_uhreg.xlsx
 uhreg.rda
+
+# app-ume
+app-ume/data.rds
+app-ume/figs.pptx
+app-ume/README.html
+
+# everything in documentation/
+documentation/
