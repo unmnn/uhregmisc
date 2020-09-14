@@ -1341,3 +1341,10 @@ dd_cats <- tribble(
 
 data_dict <- dd_stem %>% left_join(dd_cats %>% unnest(cols = item), by = "item")
 usethis::use_data(data_dict, overwrite = TRUE)
+
+# export to json
+json <- data_dict %>%
+  mutate(code = map(value, ~names(.x))) %>%
+  mutate(meaning = map(value, ~.x)) %>%
+  select(-value)
+jsonlite::write_json(json, "data/data_dict.json")

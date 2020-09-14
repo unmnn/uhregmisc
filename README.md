@@ -88,18 +88,20 @@ The script `data-raw/uhreg.R` preprocesses the UHREG data.
 
 ## Open questions
 
-  - Why are there no data for the BDI questionnaire?
-  - What does the `position` column represent?
+<!-- - Why are there no data for the BDI questionnaire? -->
 
-<!-- end list -->
+<!-- - What does the `position` column represent? -->
 
-``` 
-   1    2    3
-2010  187  102
-```
+<!-- ``` -->
 
-  - What does the prefix “v\_” mean in some column names,
-    e.g. “v\_tfi\_question\_1”?
+<!--    1    2    3 -->
+
+<!-- 2010  187  102 -->
+
+<!-- ``` -->
+
+<!-- - What does the prefix "v_" mean in some column names, e.g. "v_tfi_question_1"? -->
+
   - How to deal with the huge variety of treatment pathways?
 
 <!-- end list -->
