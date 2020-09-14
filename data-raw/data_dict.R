@@ -67,7 +67,7 @@ dd_stem <- tribble(
   NA_character_,
   #-#
   "AUDIO_left_hearing_loss",
-  NA_character_,
+  "Hearing loss",
   #-#
   "AUDIO_left_maximal_tinnitus_frequency",
   NA_character_,
@@ -148,7 +148,7 @@ dd_stem <- tribble(
   NA_character_,
   #-#
   "AUDIO_tinnitus_matching",
-  NA_character_,
+  "Location of tinnitus",
   #-#
   # CGI ----
   "CGI_lvs",
@@ -1038,6 +1038,21 @@ dd_cats <- tribble(
     "001-073" = "TMS Erhaltungstherapie",
     "001-074" = "Quarantäne2020",
     "001-999" = "Patient seen only once for cross sectional study"
+  ),
+  #-#
+
+  c("AUDIO_left_hearing_loss",
+    "AUDIO_right_hearing_loss"),
+  c("-1" = "no information",
+    "0" = "normal (0-20 dB HL)",
+    "1" = "AHZ (21-60 dB HL)",
+    "2" = "IHZ (>60 dB HL)"
+  ),
+  c("AUDIO_tinnitus_matching "),
+  c("-1" = "no information",
+    "0" = "right",
+    "1" = "left",
+    "2" = "both sides"
   ),
   #-#
 

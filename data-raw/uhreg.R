@@ -90,7 +90,9 @@ df_alpha %>%
   # TODO: AUDIO features
   mutate(across(c(CGI_q1,
                   matches("^(MDI|MINITQ|TBF12|TFI|THI|TQ|TSCHQ|TSQ|WHOQOL)_q.+") & where(is.integer)
-  ), ~ if_else(.x == -1L, NA_integer_, .x))) -> df_fct
+  ), ~ if_else(.x == -1L, NA_integer_, .x))) %>%
+  mutate(across(matches("^AUDIO"),
+                ~ if_else(.x %in% c(-1L, 888L, 999L), NA_integer_, .x)))-> df_fct
 
 # Create missing subscales ----
 df_fct %>%
