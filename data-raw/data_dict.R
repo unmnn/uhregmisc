@@ -377,7 +377,7 @@ dd_stem <- tribble(
   #-#
   "TBF12_q12",
   "v_tbf12_question_12",
-  "Do you feel that you can‘t cope with your tinnitus?",
+  "Do you feel that you can't cope with your tinnitus?",
   #-#
   "TBF12_score",
   "v_tbf12_score",
@@ -789,7 +789,7 @@ dd_stem <- tribble(
   #-#
   "TQ_q32",
   "v_tinnitus_questionnaire_gundh_question_32",
-  paste0("It's the way you think about the noise – NOT the noise itself ",
+  paste0("It's the way you think about the noise - NOT the noise itself ",
          "which makes you upset."),
   #-#
   "TQ_q33",
@@ -1642,4 +1642,5 @@ json <- data_dict %>%
   mutate(code = map(value, ~names(.x))) %>%
   mutate(meaning = map(value, ~.x)) %>%
   select(-value)
-jsonlite::write_json(json, "data/data_dict.json", pretty = TRUE)
+jsonlite::write_json(json, file.path("inst", "extdata", "data_dict.json"),
+                     pretty = TRUE)

@@ -10,7 +10,8 @@ which cannot be uploaded to GitHub due to copyright reasons.
 ## Overview
 
   - `data-raw/uhreg.R`: preprocessing script for the raw UHREG data
-  - datasets `uhreg` and `data_dict`
+  - datasets `uhreg` and `data_dict` (+ json export at
+    `inst/extdata/data_dict.json`)
   - function `discretize_score()` for discretizing a numeric
     questionnaire score according to predefined cutoff values from
     literature.

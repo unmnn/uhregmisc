@@ -7,7 +7,8 @@
 \format{
 A data frame with 3 variables:
 \describe{
-\item{item}{\code{chr} Name of the variable.}
+\item{variable}{\code{chr} Name of the variable.}
+\item{variable_original}{\code{chr} Original name of the variable.}
 \item{description}{\code{chr} Description of the variable.}
 \item{value}{\code{list} Mapping of numeric values to character strings for
 categorical variables. \code{NULL} for numeric variables.}
