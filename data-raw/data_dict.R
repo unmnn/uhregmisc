@@ -6,7 +6,7 @@ library(purrr)
 dd_stem <- tribble(
 
   ~variable, ~variable_original, ~description,
-  # .META ----
+  # .META: meta variables ----
   ".META_patient_id",
   "new_ID",
   "Patient ID",
@@ -23,7 +23,7 @@ dd_stem <- tribble(
   "visit_type",
   "Type of visit",
   #-#
-  # AUDIO ----
+  # AUDIO: audiological assessment  ----
   "AUDIO_duration",
   "audiological_examination_duration",
   NA_character_,
@@ -196,7 +196,7 @@ dd_stem <- tribble(
   "audiological_examination_tinnitus_matching",
   "Location of tinnitus",
   #-#
-  # CGI ----
+  # CGI: Clinical Global Impression ----
   "CGI_lvs",
   "cgi_last_validation_status",
   NA_character_,
@@ -206,7 +206,7 @@ dd_stem <- tribble(
   paste0("Please rate the total improvement of your tinnitus complaints ",
          "compared to before beginning of treatment."),
   #-#
-  # MDI ----
+  # MDI: Major (ICD-10) Depression Inventory ----
   "MDI_lvs",
   "v_mdi_last_validation_status",
   NA_character_,
@@ -322,7 +322,7 @@ dd_stem <- tribble(
   "v_mini_tq_score",
   "Mini-TQ total sum score",
   #-#
-  # TBF12 ----
+  # TBF12: Tinnitus Impairment Questionnaire ----
   "TBF12_lvs",
   "v_tbf12_last_validation_status",
   NA_character_,
@@ -383,7 +383,7 @@ dd_stem <- tribble(
   "v_tbf12_score",
   "TBF12 total sum score",
   #-#
-  # TFI ----
+  # TFI: Tinnitus Functional Index ----
   "TFI_lvs",
   "v_tfi_last_validation_status",
   NA_character_,
@@ -542,7 +542,7 @@ dd_stem <- tribble(
   NA_character_,
   "TFI \"emotional\" subscale (emotional distress)",
   #-#
-  # THI ----
+  # THI: Tinnitus Handicap Inventory ----
   "THI_lvs",
   "v_thi_last_validation_status",
   NA_character_,
@@ -655,7 +655,7 @@ dd_stem <- tribble(
   "v_thi_score",
   "THI total score",
   #-#
-  # TQ ----
+  # TQ: Tinnitus Questionnaire by Goebel and Hiller ----
   "TQ_lvs",
   "v_tinnitus_questionnaire_gundh_last_validation_status",
   NA_character_,
@@ -901,7 +901,7 @@ dd_stem <- tribble(
   NA_character_,
   "TQ \"somatic complaints\" subscale",
   #-#
-  # TSCHQ ----
+  # TSCHQ: Tinnitus Sample Case History Questionnaire ----
   "TSCHQ_lvs",
   "v_exp_tschq_last_validation_status",
   NA_character_,
@@ -1080,7 +1080,7 @@ dd_stem <- tribble(
   "v_exp_tschq_q36_otologic",
   NA_character_,
   #-#
-  # TSQ ----
+  # TSQ: Tinnitus Severity Questionnaire ----
   "TSQ_lvs",
   "tinnitus_severity_last_validation_status",
   NA_character_,
@@ -1109,7 +1109,7 @@ dd_stem <- tribble(
   "tinnitus_severity_question_6",
   "Do you feel frustrated because of your tinnitus?",
   #-#
-  # WHOQOL ----
+  # WHOQOL: WHO – Quality of Life Questionnaire ----
   "WHOQOL_domain01",
   "v_whoqol_bref_domain1",
   "Domain \"physical health\"",

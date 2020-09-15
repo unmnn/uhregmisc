@@ -1,31 +1,32 @@
 library(tidyverse)
+library(here)
 library(uhregmisc)
 
 df_uhreg <- uhreg
 
 # treatment type ----
 treat_types <- data_dict %>%
-  filter(item == ".META_treatment_code") %>%
+  filter(variable == ".META_treatment_code") %>%
   mutate(value = map(value, ~ tibble(key = names(.x), val = .x))) %>%
   unnest(value) %>%
   select(key, val) %>%
   mutate(val = paste(key, val))
 df_uhreg$.META_treatment_code <- factor(df_uhreg$.META_treatment_code,
-                                 levels = treat_types$key,
-                                 labels = treat_types$val) %>%
+                                        levels = treat_types$key,
+                                        labels = treat_types$val) %>%
   fct_infreq() %>%
   fct_lump_n(n = 10,
              other_level = "Other treatments")
 
 # visit type ----
-visit_types <- data_dict$value[[which(data_dict$item == ".META_visit_type")]]
+visit_types <- data_dict$value[[which(data_dict$variable == ".META_visit_type")]]
 df_uhreg$.META_visit_type <- factor(df_uhreg$.META_visit_type,
-                                 labels = visit_types)
+                                    labels = visit_types)
 
 # gender ----
-genders <- data_dict$value[[which(data_dict$item == "TSCHQ_q02_sex")]]
+genders <- data_dict$value[[which(data_dict$variable == "TSCHQ_q02_sex")]]
 df_uhreg$TSCHQ_q02_sex <- factor(df_uhreg$TSCHQ_q02_sex,
-                                    labels = genders)
+                                 labels = genders)
 
 df_shiny <- df_uhreg %>%
   select(.gender = TSCHQ_q02_sex,
@@ -33,6 +34,7 @@ df_shiny <- df_uhreg %>%
          .visit_type = .META_visit_type,
          .treat_code = .META_treatment_code,
          AUDIO = AUDIO_left_frequency_loss_01,
+         CGI = CGI_q1,
          MDI = MDI_q01,
          MINITQ = MINITQ_q01,
          TBF12 = TBF12_q01,
@@ -43,4 +45,4 @@ df_shiny <- df_uhreg %>%
          TSQ = TSQ_q1,
          WHOQOL = WHOQOL_q01)
 
-write_rds(df_shiny, "app-ume/data.rds")
+write_rds(df_shiny, here("app-ume", "data.rds"))

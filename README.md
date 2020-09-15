@@ -27,14 +27,16 @@ remotes::install_github("unmnn/uhregmisc")
 library(uhregmisc)
 ```
 
-## Shiny missingess data
+## Shiny app on data missingness
+
+<img src="app-ume/app-ume.png" width="80%" />
 
 Provides an overview of missing data patterns. You can specify a data
 subset based on:
 
   - visit type: screening, baseline, interim visit, final visit and/or
     followup
-  - treatment (10 most frequent treatment types selectable)
+  - treatment (10 most frequent treatment types are selectable)
   - gender
   - age range
 
@@ -47,7 +49,7 @@ alphabetically by their name.
 ``` r
 # When running the first time, create the necessary pre-processed dataset with:
 source("app-ume/ume_prep-data.R")
-# Afterwards, the folder `app-ume` should contain a file `data.rds`.
+# Afterwards, the folder `app-ume` should contain the file `data.rds`.
 # Then, just run the app via:
 shiny::runApp("app-ume")
 ```
