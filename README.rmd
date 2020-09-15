@@ -1,5 +1,7 @@
 ---
-output: github_document
+output: 
+  github_document:
+    html_preview: false
 ---
 
 ```{r setup, include=FALSE}
@@ -113,8 +115,8 @@ library(purrr)
 data_dict
 
 var <- "TSCHQ_q09_perception"
-data_dict %>% filter(item == var) %>% pull(description)
-data_dict %>% filter(item == var) %>% pluck("value", 1)
+data_dict %>% filter(variable == var) %>% pull(description)
+data_dict %>% filter(variable == var) %>% pluck("value", 1)
 ```
 
 ## `uhreg` overview

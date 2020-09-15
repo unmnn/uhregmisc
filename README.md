@@ -134,40 +134,36 @@ library(purrr)
 data_dict
 ```
 
-    ## # A tibble: 294 x 3
-    ##    item                         description    value     
-    ##    <chr>                        <chr>          <list>    
-    ##  1 .META_patient_id             Patient ID     <NULL>    
-    ##  2 .META_treatment_code         Treatment code <chr [75]>
-    ##  3 .META_visit_day              Day of visit   <NULL>    
-    ##  4 .META_visit_type             Type of visit  <chr [5]> 
-    ##  5 AUDIO_duration               <NA>           <NULL>    
-    ##  6 AUDIO_left_frequency_loss_01 <NA>           <NULL>    
-    ##  7 AUDIO_left_frequency_loss_02 <NA>           <NULL>    
-    ##  8 AUDIO_left_frequency_loss_03 <NA>           <NULL>    
-    ##  9 AUDIO_left_frequency_loss_04 <NA>           <NULL>    
-    ## 10 AUDIO_left_frequency_loss_05 <NA>           <NULL>    
+    ## # A tibble: 294 x 4
+    ##    variable                     variable_original                              description    value     
+    ##    <chr>                        <chr>                                          <chr>          <list>    
+    ##  1 .META_patient_id             new_ID                                         Patient ID     <NULL>    
+    ##  2 .META_treatment_code         treatment_code                                 Treatment code <chr [75]>
+    ##  3 .META_visit_day              visit_day                                      Day of visit   <NULL>    
+    ##  4 .META_visit_type             visit_type                                     Type of visit  <chr [5]> 
+    ##  5 AUDIO_duration               audiological_examination_duration              <NA>           <NULL>    
+    ##  6 AUDIO_left_frequency_loss_01 audiological_examination_left_frequency_loss_1 <NA>           <NULL>    
+    ##  7 AUDIO_left_frequency_loss_02 audiological_examination_left_frequency_loss_2 <NA>           <NULL>    
+    ##  8 AUDIO_left_frequency_loss_03 audiological_examination_left_frequency_loss_3 <NA>           <NULL>    
+    ##  9 AUDIO_left_frequency_loss_04 audiological_examination_left_frequency_loss_4 <NA>           <NULL>    
+    ## 10 AUDIO_left_frequency_loss_05 audiological_examination_left_frequency_loss_5 <NA>           <NULL>    
     ## # ... with 284 more rows
 
 ``` r
 var <- "TSCHQ_q09_perception"
-data_dict %>% filter(item == var) %>% pull(description)
+data_dict %>% filter(variable == var) %>% pull(description)
 ```
 
     ## [1] "Where do you perceive your tinnitus?"
 
 ``` r
-data_dict %>% filter(item == var) %>% pluck("value", 1)
+data_dict %>% filter(variable == var) %>% pluck("value", 1)
 ```
 
-    ##                          -1                           0 
-    ##            "no information"                 "right ear" 
-    ##                           1                           2 
-    ##                  "left ear"  "both ears, worse in left" 
-    ##                           3                           4 
-    ## "both ears, worse in right"        "both ears, equally" 
-    ##                           5                           6 
-    ##           "inside the head"                 "elsewhere"
+    ##                          -1                           0                           1                           2                           3 
+    ##            "no information"                 "right ear"                  "left ear"  "both ears, worse in left" "both ears, worse in right" 
+    ##                           4                           5                           6 
+    ##        "both ears, equally"           "inside the head"                 "elsewhere"
 
 ## `uhreg` overview
 

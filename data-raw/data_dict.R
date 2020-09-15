@@ -1,5 +1,3 @@
-## code to prepare `data_dict` dataset goes here
-
 library(dplyr)
 library(tidyr)
 library(purrr)
@@ -7,947 +5,1241 @@ library(purrr)
 # dd_stem ----
 dd_stem <- tribble(
 
-  ~item, ~description,
+  ~variable, ~variable_original, ~description,
   # .META ----
   ".META_patient_id",
+  "new_ID",
   "Patient ID",
   #-#
   ".META_treatment_code",
+  "treatment_code",
   "Treatment code",
   #-#
   ".META_visit_day",
+  "visit_day",
   "Day of visit",
   #-#
   ".META_visit_type",
+  "visit_type",
   "Type of visit",
   #-#
   # AUDIO ----
   "AUDIO_duration",
+  "audiological_examination_duration",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_01",
+  "audiological_examination_left_frequency_loss_1",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_02",
+  "audiological_examination_left_frequency_loss_2",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_03",
+  "audiological_examination_left_frequency_loss_3",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_04",
+  "audiological_examination_left_frequency_loss_4",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_05",
+  "audiological_examination_left_frequency_loss_5",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_06",
+  "audiological_examination_left_frequency_loss_6",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_07",
+  "audiological_examination_left_frequency_loss_7",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_08",
+  "audiological_examination_left_frequency_loss_8",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_09",
+  "audiological_examination_left_frequency_loss_9",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_10",
+  "audiological_examination_left_frequency_loss_10",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_11",
+  "audiological_examination_left_frequency_loss_11",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_12",
+  "audiological_examination_left_frequency_loss_12",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_13",
+  "audiological_examination_left_frequency_loss_13",
   NA_character_,
   #-#
   "AUDIO_left_frequency_loss_14",
+  "audiological_examination_left_frequency_loss_14",
   NA_character_,
   #-#
   "AUDIO_left_hearing_loss",
+  "audiological_examination_left_hearing_loss",
   "Hearing loss",
   #-#
   "AUDIO_left_maximal_tinnitus_frequency",
+  "audiological_examination_left_maximal_tinnitus_frequency",
   NA_character_,
   #-#
   "AUDIO_left_minimal_masking_level",
+  "audiological_examination_left_minimal_masking_level" ,
   NA_character_,
   #-#
   "AUDIO_left_minimal_tinnitus_frequency",
+  "audiological_examination_left_minimal_tinnitus_frequency",
   NA_character_,
   #-#
   "AUDIO_left_tinntitus_type",
+  "audiological_examination_left_tinntitus_type",
   NA_character_,
   #-#
   "AUDIO_lvs",
+  "audiological_examination_last_validation_status",
   NA_character_,
   #-#
   "AUDIO_residual_inhibition",
+  "audiological_examination_residual_inhibition",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_01",
+  "audiological_examination_right_frequency_loss_1",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_02",
+  "audiological_examination_right_frequency_loss_2",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_03",
+  "audiological_examination_right_frequency_loss_3",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_04",
+  "audiological_examination_right_frequency_loss_4",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_05",
+  "audiological_examination_right_frequency_loss_5",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_06",
+  "audiological_examination_right_frequency_loss_6",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_07",
+  "audiological_examination_right_frequency_loss_7",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_08",
+  "audiological_examination_right_frequency_loss_8",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_09",
+  "audiological_examination_right_frequency_loss_9",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_10",
+  "audiological_examination_right_frequency_loss_10",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_11",
+  "audiological_examination_right_frequency_loss_11",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_12",
+  "audiological_examination_right_frequency_loss_12",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_13",
+  "audiological_examination_right_frequency_loss_13",
   NA_character_,
   #-#
   "AUDIO_right_frequency_loss_14",
+  "audiological_examination_right_frequency_loss_14",
   NA_character_,
   #-#
   "AUDIO_right_hearing_loss",
+  "audiological_examination_right_hearing_loss",
   NA_character_,
   #-#
   "AUDIO_right_maximal_tinnitus_frequency",
+  "audiological_examination_right_maximal_tinnitus_frequency",
   NA_character_,
   #-#
   "AUDIO_right_minimal_masking_level",
+  "audiological_examination_right_minimal_masking_level",
   NA_character_,
   #-#
   "AUDIO_right_minimal_tinnitus_frequency",
+  "audiological_examination_right_minimal_tinnitus_frequency",
   NA_character_,
   #-#
   "AUDIO_right_tinnitus_type",
+  "audiological_examination_right_tinnitus_type",
   NA_character_,
   #-#
   "AUDIO_survey_participation_appropriateness",
+  "audiological_examination_survey_participation_appropriateness",
   NA_character_,
   #-#
   "AUDIO_tinnitus_matching",
+  "audiological_examination_tinnitus_matching",
   "Location of tinnitus",
   #-#
   # CGI ----
   "CGI_lvs",
+  "cgi_last_validation_status",
   NA_character_,
   #-#
   "CGI_q1",
+  "cgi_question_1",
   paste0("Please rate the total improvement of your tinnitus complaints ",
          "compared to before beginning of treatment."),
   #-#
   # MDI ----
   "MDI_lvs",
+  "v_mdi_last_validation_status",
   NA_character_,
   #-#
   "MDI_q01",
+  "v_mdi_question_1",
   "How much of the time have you felt low in spirits or sad?",
   #-#
   "MDI_q02",
+  "v_mdi_question_2",
   "How much of the time have you lost interest in your daily activities?",
   #-#
   "MDI_q03",
+  "v_mdi_question_3",
   "How much of the time have you felt lacking in energy and strength?",
   #-#
   "MDI_q04",
+  "v_mdi_question_4",
   "How much of the time have you felt less self- confident?",
   #-#
   "MDI_q05",
+  "v_mdi_question_5",
   "How much of the time have you had a bad conscience or feelings of guilt?",
   #-#
   "MDI_q06",
+  "v_mdi_question_6",
   "How much of the time have you felt that life was not worth living?",
   #-#
   "MDI_q07",
+  "v_mdi_question_7",
   paste0("How much of the time have you had difficulty in concentrating, ",
          "e.g. when reading the newspaper of watching TV?"),
   #-#
   "MDI_q08a",
+  "v_mdi_question_8a",
   "How much of the time have you felt very restless?",
   #-#
   "MDI_q08b",
+  "v_mdi_question_8b",
   "How much of the time have you felt subdued or slowed down?",
   #-#
   "MDI_q09",
+  "v_mdi_question_9",
   "How much of the time have you had trouble sleeping at night?",
   #-#
   "MDI_q10a",
+  "v_mdi_question_10a",
   "How much of the time have you suffered from reduced appetite?",
   #-#
   "MDI_q10b",
+  "v_mdi_question_10b",
   "How much of the time have you suffered from increased appetite?",
   #-#
   "MDI_score",
+  "v_mdi_score",
   "Major (ICD-10) Depression Inventory (MDI) score",
   #-#
   # MINITQ ----
   "MINITQ_lvs",
+  "v_mini_tq_last_validation_status",
   NA_character_,
   #-#
   "MINITQ_q01",
+  "v_mini_tq_question_1",
   "I am aware of the noises from the moment I get up to the moment I sleep.",
   #-#
   "MINITQ_q02",
+  "v_mini_tq_question_2",
   paste0("Because of the noises I worry that there is something seriously ",
          "wrong with my body."),
   #-#
   "MINITQ_q03",
+  "v_mini_tq_question_3",
   "If the noises continue my life will not be worth living.",
   #-#
   "MINITQ_q04",
+  "v_mini_tq_question_4",
   "I am more irritable with my family and friends because of the noises.",
   #-#
   "MINITQ_q05",
+  "v_mini_tq_question_5",
   "I worry that the noises might damage my physical health.",
   #-#
   "MINITQ_q06",
+  "v_mini_tq_question_6",
   "I find it harder to relax because of the noises.",
   #-#
   "MINITQ_q07",
+  "v_mini_tq_question_7",
   "My noises are often so bad that I cannot ignore them.",
   #-#
   "MINITQ_q08",
+  "v_mini_tq_question_8",
   "It takes me longer to get to sleep because of the noises.",
   #-#
   "MINITQ_q09",
+  "v_mini_tq_question_9",
   "I am more liable to feel low because of the noises.",
   #-#
   "MINITQ_q10",
+  "v_mini_tq_question_10",
   "I often think about whether the noises will ever go away.",
   #-#
   "MINITQ_q11",
+  "v_mini_tq_question_11",
   "I am a victim of my noises.",
   #-#
   "MINITQ_q12",
+  "v_mini_tq_question_12",
   "The noises have affected my concentration.",
   #-#
   "MINITQ_score",
+  "v_mini_tq_score",
   "Mini-TQ total sum score",
   #-#
   # TBF12 ----
   "TBF12_lvs",
+  "v_tbf12_last_validation_status",
   NA_character_,
   #-#
   "TBF12_q01",
+  "v_tbf12_question_1",
   "Because of your tinnitus is it difficult for you to concentrate?",
   #-#
   "TBF12_q02",
+  "v_tbf12_question_2",
   paste0("Is it difficult for you to understand what people are saying ",
          "because of the intensity of your tinnitus?"),
   #-#
   "TBF12_q03",
+  "v_tbf12_question_3",
   "Do you get annoyed by your tinnitus?",
   #-#
   "TBF12_q04",
+  "v_tbf12_question_4",
   "Do you feel that you cannot escape your tinnitus?",
   #-#
   "TBF12_q05",
+  "v_tbf12_question_5",
   paste0("Does your tinnitus interfere with your social activities (such as ",
          "going out to dinner, to the movies?"),
   #-#
   "TBF12_q06",
+  "v_tbf12_question_6",
   "Do you feel frustrated because of your tinnitus?",
   #-#
   "TBF12_q07",
+  "v_tbf12_question_7",
   "Does your tinnitus interfere with your job or household responsibilities?",
   #-#
   "TBF12_q08",
+  "v_tbf12_question_8",
   "Because of your tinnitus is it difficult for you to read?",
   #-#
   "TBF12_q09",
+  "v_tbf12_question_9",
   paste0("Do you feel that your tinnitus has placed stress on your ",
          "relationship with members of your family and friends?"),
   #-#
   "TBF12_q10",
+  "v_tbf12_question_10",
   paste0("Do you find it difficult to focur your attention on things other ",
          "than your tinnitus?"),
   #-#
   "TBF12_q11",
+  "v_tbf12_question_11",
   "Does your tinnitus make you feel anxious?",
   #-#
   "TBF12_q12",
+  "v_tbf12_question_12",
   "Do you feel that you can‘t cope with your tinnitus?",
   #-#
   "TBF12_score",
+  "v_tbf12_score",
   "TBF12 total sum score",
   #-#
   # TFI ----
   "TFI_lvs",
+  "v_tfi_last_validation_status",
   NA_character_,
   #-#
   "TFI_q01",
+  "v_tfi_question_1",
   paste0("Please rate the total improvement of your tinnitus complaints ",
          "compared to before beginning of treatment."),
   #-#
   "TFI_q02",
+  "v_tfi_question_2",
   "How STRONG or LOUD was your tinnitus?",
   #-#
   "TFI_q03",
+  "v_tfi_question_3",
   "What percentage of your time awake were you ANNOYED by your tinnitus?",
   #-#
   "TFI_q04",
+  "v_tfi_question_4",
   "Did you feel IN CONTROL in regard to your tinnitus?",
   #-#
   "TFI_q05",
+  "v_tfi_question_5",
   "How easy was it for you to COPE with your tinnitus?",
   #-#
   "TFI_q06",
+  "v_tfi_question_6",
   "How easy was it for you to IGNORE your tinnitus?",
   #-#
   "TFI_q07",
+  "v_tfi_question_7",
   paste0("Over the past week, how much did your tinnitus interfere with ",
          "your ability to CONCENTRATE?"),
   #-#
   "TFI_q08",
+  "v_tfi_question_8",
   paste0("Over the past week, how much did your tinnitus interfere with ",
          "your ability to THINK CLEARLY?"),
   #-#
   "TFI_q09",
+  "v_tfi_question_9",
   paste0("Over the past week, how much did your tinnitus interfere with ",
          "your ability to FOCUS ATTENTION on other things besides your tinnitus?"),
   #-#
   "TFI_q10",
+  "v_tfi_question_10",
   paste0("How often did your tinnitus make it difficult to FALL ASLEEP or",
          "STAY ASLEEP?"),
   #-#
   "TFI_q11",
+  "v_tfi_question_11",
   paste0("How often did your tinnitus cause you difficulty in getting AS ",
          "MUCH SLEEP as you needed?"),
   #-#
   "TFI_q12",
+  "v_tfi_question_12",
   paste0("How much of the time did your tinnitus keep you from SLEEPING as ",
          "DEEPLY or as PEACEFULLY as you would have liked?"),
   #-#
   "TFI_q13",
+  "v_tfi_question_13",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your ability to HEAR CLEARLY?"),
   #-#
   "TFI_q14",
+  "v_tfi_question_14",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your ability to UNDERSTAND PEOPLE who are talking?"),
   #-#
   "TFI_q15",
+  "v_tfi_question_15",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your ability to FOLLOW CONVERSATIONS in a group or at meetings?"),
   #-#
   "TFI_q16",
+  "v_tfi_question_16",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your QUIET RESTING ACTIVITIES?"),
   #-#
   "TFI_q17",
+  "v_tfi_question_17",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your ability to RELAX?"),
   #-#
   "TFI_q18",
+  "v_tfi_question_18",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your ability to enjoy \"PEACE AND QUIET\"?"),
   #-#
   "TFI_q19",
+  "v_tfi_question_19",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your enjoyment of SOCIAL ACTIVITIES?"),
   #-#
   "TFI_q20",
+  "v_tfi_question_20",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your ENJOYMENT OF LIFE?"),
   #-#
   "TFI_q21",
+  "v_tfi_question_21",
   paste0("Over the past week, how much has your tinnitus interfered with ",
          "your RELATIONSHIPS with family, friends and other people?"),
   #-#
   "TFI_q22",
+  "v_tfi_question_22",
   paste0("How often did your tinnitus cause you to have difficulty ",
          "performing your WORK OR OTHER TASKS, such as home maintenance, school ",
          "work, or caring for children or others?"),
   #-#
   "TFI_q23",
+  "v_tfi_question_23",
   "How ANXIOUS or WORRIED has your tinnitus made you feel?",
   #-#
   "TFI_q24",
+  "v_tfi_question_24",
   "How BOTHERED or UPSET have you been because of your tinnitus?",
   #-#
   "TFI_q25",
+  "v_tfi_question_25",
   "How DEPRESSED were you because of your tinnitus?",
   #-#
   "TFI_score",
+  "v_tfi_score",
   "TFI total sum score",
   #-#
   "TFI_intrusive",
+  NA_character_,
   "TFI \"intrusive\" subscale (unpleasantness, intrusiveness, persistence)",
   #-#
   "TFI_sense_of_control",
+  NA_character_,
   "TFI \"sense of control\" subscale (reduced sense of control)",
   #-#
   "TFI_cognitive",
+  NA_character_,
   "TFI \"cognitive\" subscale (cognitife interference)",
   #-#
   "TFI_sleep",
+  NA_character_,
   "TFI \"sleep\" subscale (sleep disturbance)",
   #-#
   "TFI_auditory",
+  NA_character_,
   "TFI \"auditory\" subscale (auditory difficulties attributed to tinnitus)",
   #-#
   "TFI_relaxation",
+  NA_character_,
   "TFI \"relaxation\" subscale (interference with relaxation)",
   #-#
   "TFI_quality_of_life",
+  NA_character_,
   "TFI \"quality of life\" subscale (quality of life reduced)",
   #-#
   "TFI_emotional",
+  NA_character_,
   "TFI \"emotional\" subscale (emotional distress)",
   #-#
   # THI ----
   "THI_lvs",
+  "v_thi_last_validation_status",
   NA_character_,
   #-#
   "THI_q01",
+  "v_thi_question_1",
   "Because of your tinnitus, is it difficult for you to concentrate?",
   #-#
   "THI_q02",
+  "v_thi_question_2",
   paste0("Does the loudness of your tinnitus make it difficult for you to ",
          "hear people?"),
   #-#
   "THI_q03",
+  "v_thi_question_3",
   "Does your tinnitus make you angry?",
   #-#
   "THI_q04",
+  "v_thi_question_4",
   "Does your tinnitus make you feel confused?",
   #-#
   "THI_q05",
+  "v_thi_question_5",
   "Because of your tinnitus, do you feel desperate?",
   #-#
   "THI_q06",
+  "v_thi_question_6",
   "Do you complain a great deal about your tinnitus?",
   #-#
   "THI_q07",
+  "v_thi_question_7",
   "Because of your tinnitus, do you have trouble falling to sleep at night?",
   #-#
   "THI_q08",
+  "v_thi_question_8",
   "Do you feel as though you cannot escape your tinnitus?",
   #-#
   "THI_q09",
+  "v_thi_question_9",
   paste0("Does your tinnitus interfere with your ability to enjoy your ",
          "social activities (such as going out to dinner, to the movies)?"),
   #-#
   "THI_q10",
+  "v_thi_question_10",
   "Because of your tinnitus, do you feel frustrated?",
   #-#
   "THI_q11",
+  "v_thi_question_11",
   "Because of your tinnitus, do you feel that you have a terrible disease?",
   #-#
   "THI_q12",
+  "v_thi_question_12",
   "Does your tinnitus make it difficult for you to enjoy life?",
   #-#
   "THI_q13",
+  "v_thi_question_13",
   "Does your tinnitus interfere with your job or household responsibilities?",
   #-#
   "THI_q14",
+  "v_thi_question_14",
   "Because of your tinnitus, do you find that you are often irritable?",
   #-#
   "THI_q15",
+  "v_thi_question_15",
   "Because of your tinnitus, is it difficult for you to read?",
   #-#
   "THI_q16",
+  "v_thi_question_16",
   "Does your tinnitus make you upset?",
   #-#
   "THI_q17",
+  "v_thi_question_17",
   paste0("Do you feel that your tinnitus problem has placed stress on your ",
          "relationships with members of your family and friends?"),
   #-#
   "THI_q18",
+  "v_thi_question_18",
   paste0("Do you find it difficult to focus your attention away from your ",
          "tinnitus and on other things?"),
   #-#
   "THI_q19",
+  "v_thi_question_19",
   "Do you feel that you have no control over your tinnitus?",
   #-#
   "THI_q20",
+  "v_thi_question_20",
   "Because of your tinnitus, do you often feel tired?",
   #-#
   "THI_q21",
+  "v_thi_question_21",
   "Because of your tinnitus, do you feel depressed?",
   #-#
   "THI_q22",
+  "v_thi_question_22",
   "Does your tinnitus make you feel anxious?",
   #-#
   "THI_q23",
+  "v_thi_question_23",
   "Do you feel that you can no longer cope with your tinnitus?",
   #-#
   "THI_q24",
+  "v_thi_question_24",
   "Does your tinnitus get worse when you are under stress?",
   #-#
   "THI_q25",
+  "v_thi_question_25",
   "Does your tinnitus make you feel insecure?",
   #-#
   "THI_score",
+  "v_thi_score",
   "THI total score",
   #-#
   # TQ ----
   "TQ_lvs",
+  "v_tinnitus_questionnaire_gundh_last_validation_status",
   NA_character_,
   #-#
   "TQ_q01",
+  "v_tinnitus_questionnaire_gundh_question_1",
   "I can sometimes ignore the noises when they are there.",
   #-#
   "TQ_q02",
+  "v_tinnitus_questionnaire_gundh_question_2",
   "I am unable to enjoy listening to music because of the noises.",
   #-#
   "TQ_q03",
+  "v_tinnitus_questionnaire_gundh_question_3",
   "It's unfair that I have to suffer with my noises.",
   #-#
   "TQ_q04",
+  "v_tinnitus_questionnaire_gundh_question_4",
   "I wake up more in the night because of my noises.",
   #-#
   "TQ_q05",
+  "v_tinnitus_questionnaire_gundh_question_5",
   "I am aware of the noises from the moment I get up to the moment I sleep.",
   #-#
   "TQ_q06",
+  "v_tinnitus_questionnaire_gundh_question_6",
   "Your attitude to the noise makes no difference to how it affects you.",
   #-#
   "TQ_q07",
+  "v_tinnitus_questionnaire_gundh_question_7",
   "Most of the time the noises are fairly quiet.",
   #-#
   "TQ_q08",
+  "v_tinnitus_questionnaire_gundh_question_8",
   "I worry that the noises will give me a nervous breakdown.",
   #-#
   "TQ_q09",
+  "v_tinnitus_questionnaire_gundh_question_9",
   paste0("Because of the noises I have difficulty in telling where sounds ",
          "are coming from."),
   #-#
   "TQ_q10",
+  "v_tinnitus_questionnaire_gundh_question_10",
   "The way the noises sound is really unpleasant.",
   #-#
   "TQ_q11",
+  "v_tinnitus_questionnaire_gundh_question_11",
   "I feel I can never get away from the noises.",
   #-#
   "TQ_q12",
+  "v_tinnitus_questionnaire_gundh_question_12",
   "Because of the noises I wake up earlier in the morning.",
   #-#
   "TQ_q13",
+  "v_tinnitus_questionnaire_gundh_question_13",
   "I worry whether I will be able to put up with this problem for ever.",
   #-#
   "TQ_q14",
+  "v_tinnitus_questionnaire_gundh_question_14",
   paste0("Because of the noises it is more difficult to listen to several ",
          "people at once"),
   #-#
   "TQ_q15",
+  "v_tinnitus_questionnaire_gundh_question_15",
   "The noises are loud most of the time",
   #-#
   "TQ_q16",
+  "v_tinnitus_questionnaire_gundh_question_16",
   paste0("Because of the noises I worry that there is something seriously ",
          "wrong with my body"),
   #-#
   "TQ_q17",
+  "v_tinnitus_questionnaire_gundh_question_17",
   "If the noises continue my life will not be worth living.",
   #-#
   "TQ_q18",
+  "v_tinnitus_questionnaire_gundh_question_18",
   "I have lost some of my confidence because of the noises.",
   #-#
   "TQ_q19",
+  "v_tinnitus_questionnaire_gundh_question_19",
   "I wish someone understood what this problem is like.",
   #-#
   "TQ_q20",
+  "v_tinnitus_questionnaire_gundh_question_20",
   "The noises distract me whatever I am doing.",
   #-#
   "TQ_q21",
+  "v_tinnitus_questionnaire_gundh_question_21",
   "There is very little one can do to cope with the noises.",
   #-#
   "TQ_q22",
+  "v_tinnitus_questionnaire_gundh_question_22",
   "The noises sometimes give me a pain in the ear or head.",
   #-#
   "TQ_q23",
+  "v_tinnitus_questionnaire_gundh_question_23",
   "When I feel low and pessimistic the noise seems worse.",
   #-#
   "TQ_q24",
+  "v_tinnitus_questionnaire_gundh_question_24",
   "I am more irritable with my family and friends because of the noises.",
   #-#
   "TQ_q25",
+  "v_tinnitus_questionnaire_gundh_question_25",
   "Because of the noises I have tension in the muscles of my head and neck.",
   #-#
   "TQ_q26",
+  "v_tinnitus_questionnaire_gundh_question_26",
   "Because of the noises other people's voices sound distorted to me.",
   #-#
   "TQ_q27",
+  "v_tinnitus_questionnaire_gundh_question_27",
   "It will be dreadful if these noises never go away.",
   #-#
   "TQ_q28",
+  "v_tinnitus_questionnaire_gundh_question_28",
   "I worry that the noises might damage my physical health.",
   #-#
   "TQ_q29",
+  "v_tinnitus_questionnaire_gundh_question_29",
   "The noise seems to go right through my head.",
   #-#
   "TQ_q30",
+  "v_tinnitus_questionnaire_gundh_question_30",
   "Almost all of my problems are caused by these noises.",
   #-#
   "TQ_q31",
+  "v_tinnitus_questionnaire_gundh_question_31",
   "Sleep is my main problem.",
   #-#
   "TQ_q32",
+  "v_tinnitus_questionnaire_gundh_question_32",
   paste0("It's the way you think about the noise – NOT the noise itself ",
          "which makes you upset."),
   #-#
   "TQ_q33",
+  "v_tinnitus_questionnaire_gundh_question_33",
   "I have more difficulty following a conversation because of the noises.",
   #-#
   "TQ_q34",
+  "v_tinnitus_questionnaire_gundh_question_34",
   "I find it harder to relax because of the noises.",
   #-#
   "TQ_q35",
+  "v_tinnitus_questionnaire_gundh_question_35",
   "My noises are often so bad that I cannot ignore them.",
   #-#
   "TQ_q36",
+  "v_tinnitus_questionnaire_gundh_question_36",
   "It takes me longer to get to sleep because of the noises.",
   #-#
   "TQ_q37",
+  "v_tinnitus_questionnaire_gundh_question_37",
   "I sometimes get very angry when I think about having the noises.",
   #-#
   "TQ_q38",
+  "v_tinnitus_questionnaire_gundh_question_38",
   "I find it harder to use the telephone because of the noises.",
   #-#
   "TQ_q39",
+  "v_tinnitus_questionnaire_gundh_question_39",
   "I am more liable to feel low because of the noises.",
   #-#
   "TQ_q40",
+  "v_tinnitus_questionnaire_gundh_question_40",
   paste0("I am able to forget about the noises when I am doing something ",
          "interesting."),
   #-#
   "TQ_q41",
+  "v_tinnitus_questionnaire_gundh_question_41",
   "Because of the noises life seems to be getting on top of me.",
   #-#
   "TQ_q42",
+  "v_tinnitus_questionnaire_gundh_question_42",
   "I have always been sensitive about trouble with my ears.",
   #-#
   "TQ_q43",
+  "v_tinnitus_questionnaire_gundh_question_43",
   "I often think about whether the noises will ever go away.",
   #-#
   "TQ_q44",
+  "v_tinnitus_questionnaire_gundh_question_44",
   "I can imagine coping with the noises.",
   #-#
   "TQ_q45",
+  "v_tinnitus_questionnaire_gundh_question_45",
   "The noises never \"let up\".",
   #-#
   "TQ_q46",
+  "v_tinnitus_questionnaire_gundh_question_46",
   "A stronger person might be better at accepting this problem.",
   #-#
   "TQ_q47",
+  "v_tinnitus_questionnaire_gundh_question_47",
   "I am a victim of my noises.",
   #-#
   "TQ_q48",
+  "v_tinnitus_questionnaire_gundh_question_48",
   "The noises have affected my concentration.",
   #-#
   "TQ_q49",
+  "v_tinnitus_questionnaire_gundh_question_49",
   "The noises are one of those problems in life you have to live with.",
   #-#
   "TQ_q50",
+  "v_tinnitus_questionnaire_gundh_question_50",
   "Because of the noises I am unable to enjoy the radio or television.",
   #-#
   "TQ_q51",
+  "v_tinnitus_questionnaire_gundh_question_51",
   "The noises sometimes produce a bad headache.",
   #-#
   "TQ_q52",
+  "v_tinnitus_questionnaire_gundh_question_52",
   "I have always been a light sleeper.",
   #-#
   "TQ_score",
+  "v_tinnitus_questionnaire_gundh_score",
   "TQ total sum score",
   #-#
   "TQ_emotional_distress",
+  NA_character_,
   "TQ \"emotional distress\" subscale",
   #-#
   "TQ_cognitive_distress",
+  NA_character_,
   "TQ \"cognitive distress\" subscale",
   #-#
   "TQ_intrusiveness",
+  NA_character_,
   "TQ \"intrusiveness\" subscale",
   #-#
   "TQ_auditory_perceptual_difficulties",
+  NA_character_,
   "TQ \"auditory perceptual difficulties\" subscale",
   #-#
   "TQ_sleep_disturbances",
+  NA_character_,
   "TQ \"sleep disturbances\" subscale",
   #-#
   "TQ_somatic_complaints",
+  NA_character_,
   "TQ \"somatic complaints\" subscale",
   #-#
   # TSCHQ ----
   "TSCHQ_lvs",
+  "v_exp_tschq_last_validation_status",
   NA_character_,
   #-#
   "TSCHQ_months_between_begin_tinnitus_and_visit_time",
+  "v_exp_tschq_months_between_begin_tinnitus_and_visit_time",
   NA_character_,
   #-#
   "TSCHQ_months_since_begin_tinnitus",
+  "v_exp_tschq_months_since_begin_tinnitus",
   NA_character_,
   #-#
   "TSCHQ_q01_age",
+  "age",
   "Patient age at examination (in years)",
   #-#
   "TSCHQ_q02_sex",
+  "sex",
   "Patient gender",
   #-#
   "TSCHQ_q03_handedness",
+  "v_exp_tschq_q3_handedness",
   "Patient handedness",
   #-#
   "TSCHQ_q04_family",
+  "v_exp_tschq_q4_family",
   "Family history of tinnitus complaints",
   #-#
   "TSCHQ_q04_1_family_additional",
+  "v_exp_tschq_q41_family_additional",
   "Family history of tinnitus complaints: additional statements",
   #-#
   "TSCHQ_q05_begin_tinnitus",
+  "v_exp_tschq_q5_begin_tinnitus",
   "Initial onset: when did you first experience your tinnitus?",
   #-#
   "TSCHQ_q05_1_begin_tinnitus_additional",
+  "v_exp_tschq_q51_begin_tinnitus_additional",
   "Initial onset: if not exactly known",
   #-#
   "TSCHQ_q06_begin_perception",
+  "v_exp_tschq_q6_begin_perception",
   "How did you perceive the beginning?",
   #-#
   "TSCHQ_q07_begin_correlation",
+  "v_exp_tschq_q7_begin_correlation",
   "Was the initial onset of your tinnitus related to:",
   #-#
   "TSCHQ_q08_pulsating",
+  "v_exp_tschq_q8_pulsating",
   "Does your tinnitus seem to PULSATE?",
   #-#
   "TSCHQ_q09_perception",
+  "v_exp_tschq_q9_perception",
   "Where do you perceive your tinnitus?",
   #-#
   "TSCHQ_q10_history",
+  "v_exp_tschq_q10_history",
   "How does your tinnitus manifest itself over time?",
   #-#
   "TSCHQ_q11_daily_volume",
+  "v_exp_tschq_q11_daily_volume",
   "Does the LOUDNESS of the tinnitus vary from day to day?",
   #-#
   "TSCHQ_q12_personal_volume",
+  "v_exp_tschq_q12_personal_volume",
   "Describe the LOUDNESS of your tinnitus using a scale from 1-100.",
   #-#
   "TSCHQ_q13_tone_perception",
+  "v_exp_tschq_q13_tone_perception",
   "Please descibe in your own words what your tinnitus usually sounds like:",
   #-#
   "TSCHQ_q14_tone_type",
+  "v_exp_tschq_q14_tone_type",
   "Does your tinnitus more sound like a tone or more like noise?",
   #-#
   "TSCHQ_q15_tone_frequency",
+  "v_exp_tschq_q15_tone_frequency",
   "Please describe the PITCH of your tinnitus:",
   #-#
   "TSCHQ_q16_awareness",
+  "v_exp_tschq_q16_awareness",
   paste0("What percent of your total awake time, over the last month, have ",
          "you been aware of your tinnitus?"),
   #-#
   "TSCHQ_q17_angerness",
+  "v_exp_tschq_q17_angerness",
   paste0("What percent of your total awake time, over the last month, have ",
          "you been annoyed, distressed, or irritated of your tinnitus?"),
   #-#
   "TSCHQ_q18_treatment_count",
+  "v_exp_tschq_q18_treatment_count",
   paste0("How many different treatments have you undergone because of your ",
          "tinnitus?"),
   #-#
   "TSCHQ_q19_context_volume",
+  "v_exp_tschq_q19_context_volume",
   paste0("Is your tinnitus reduced by music or by certain types of ",
          "environmental sounds such as the noise of a waterfall or the ",
          "noise of running water when you are standing in the shower?"),
   #-#
   "TSCHQ_q20_context_change",
+  "v_exp_tschq_q20_context_change",
   "Does the presence of loud noise make your tinnitus worse?",
   #-#
   "TSCHQ_q21_head_change",
+  "v_exp_tschq_q21_head_change",
   paste0("Does any head and neck movement (e.g. moving the jaw forward or",
          "clenching the teeth), or having your arms/hands or head touched, ",
          "affect your tinnitus?"),
   #-#
   "TSCHQ_q22_nap_change",
+  "v_exp_tschq_q22_nap_change",
   "Does taking a nap during the day affect your tinnitus?",
   #-#
   "TSCHQ_q23_sleep_correlation",
+  "v_exp_tschq_q23_sleep_correlation",
   paste0("Is there any relationship between sleep at night and your ",
          "tinnitus during the day?"),
   #-#
   "TSCHQ_q24_stress_correlation",
+  "v_exp_tschq_q24_stress_correlation",
   "Does stress influence your tinnitus?",
   #-#
   "TSCHQ_q25_medication",
+  "v_exp_tschq_q25_medication",
   "Does medication have an effect on your tinnitus?",
   #-#
   "TSCHQ_q26_hear_problems",
+  "v_exp_tschq_q26_hear_problems",
   "Do you think you have a hearing problem?",
   #-#
   "TSCHQ_q27_hear_helps",
+  "v_exp_tschq_q27_hear_helps",
   "Do you wear hearing aids?",
   #-#
   "TSCHQ_q28_noise_sensitive",
+  "v_exp_tschq_q28_noise_sensitive",
   paste0("Do you have a problem tolerating sounds because they often seem ",
          "much too loud? That is, do you often find too loud or hurtful sounds ",
          "which other people around you find quite comfortable?"),
   #-#
   "TSCHQ_q29_noise_dependent",
+  "v_exp_tschq_q29_noise_dependent",
   "Do sounds cause you pain or physical discomfort?",
   #-#
   "TSCHQ_q30_headache",
+  "v_exp_tschq_q30_headache",
   "Do you suffer from headache?",
   #-#
   "TSCHQ_q31_bogus",
+  "v_exp_tschq_q31_bogus",
   "Do you suffer from vertigo or dizziness?",
   #-#
   "TSCHQ_q32_jaw_problems",
+  "v_exp_tschq_q32_jaw_problems",
   "Do you suffer from temporomandibular disorder?",
   #-#
   "TSCHQ_q33_nape_problems",
+  "v_exp_tschq_q33_nape_problems",
   "Do you suffer from neck pain?",
   #-#
   "TSCHQ_q34_other_problems",
+  "v_exp_tschq_q34_other_problems",
   "Do you suffer from other pain syndromes?",
   #-#
   "TSCHQ_q35_psychological_treatment",
+  "v_exp_tschq_q35_psychological_treatment",
   "Are you currently under treatment for psychiatric problems?",
   #-#
   "TSCHQ_q36_1_otologic_additional",
+  "v_exp_tschq_q361_otologic_additional",
   NA_character_,
   #-#
   "TSCHQ_q36_otologic",
+  "v_exp_tschq_q36_otologic",
   NA_character_,
   #-#
   # TSQ ----
   "TSQ_lvs",
+  "tinnitus_severity_last_validation_status",
   NA_character_,
   #-#
   "TSQ_q1",
+  "tinnitus_severity_question_1",
   "How much of a problem is your tinnitus at present?",
   #-#
   "TSQ_q2",
+  "tinnitus_severity_question_2",
   "How STRONG or LOUD is your tinnitus at present?",
   #-#
   "TSQ_q3",
+  "tinnitus_severity_question_3",
   "How UNCOMFORTABLE is your tinnitus at present, if everything around you is quiet?",
   #-#
   "TSQ_q4",
+  "tinnitus_severity_question_4",
   "How ANNOYING is your tinnitus at present?",
   #-#
   "TSQ_q5",
+  "tinnitus_severity_question_5",
   "How easy is it for you to IGNORE your tinnitus at present?",
   #-#
   "TSQ_q6",
+  "tinnitus_severity_question_6",
   "Do you feel frustrated because of your tinnitus?",
   #-#
   # WHOQOL ----
   "WHOQOL_domain01",
+  "v_whoqol_bref_domain1",
   "Domain \"physical health\"",
   #-#
   "WHOQOL_domain02",
+  "v_whoqol_bref_domain2",
   "Domain \"psychological\"",
   #-#
   "WHOQOL_domain03",
+  "v_whoqol_bref_domain3",
   "Domain \"social relationships\"",
   #-#
   "WHOQOL_domain04",
+  "v_whoqol_bref_domain4",
   "Domain \"environment\"",
   #-#
   "WHOQOL_lvs",
+  "v_whoqol_bref_last_validation_status",
   NA_character_,
   #-#
   "WHOQOL_more_20pct_missing",
+  "v_whoqol_bref_more_20pct_missing",
   NA_character_,
   #-#
   "WHOQOL_q01",
+  "v_whoqol_bref_question_1",
   "How would you rate your quality of life?",
   #-#
   "WHOQOL_q02",
+  "v_whoqol_bref_question_2",
   "How satisfied are you with your health?",
   #-#
   "WHOQOL_q03",
+  "v_whoqol_bref_question_3",
   paste0("To what extent do you feel that physical pain prevents you from ",
          "doing what you need to do?"),
   #-#
   "WHOQOL_q04",
+  "v_whoqol_bref_question_4",
   paste0("How much do you need any medical treatment to function in your ",
          "daily life?"),
   #-#
   "WHOQOL_q05",
+  "v_whoqol_bref_question_5",
   "How much do you enjoy life?",
   #-#
   "WHOQOL_q06",
+  "v_whoqol_bref_question_6",
   "To what extent do you feel your life to be meaningful?",
   #-#
   "WHOQOL_q07",
+  "v_whoqol_bref_question_7",
   "How well are you able to concentrate?",
   #-#
   "WHOQOL_q08",
+  "v_whoqol_bref_question_8",
   "How safe do you feel in your daily life?",
   #-#
   "WHOQOL_q09",
+  "v_whoqol_bref_question_9",
   "How healthy is your physical environment?",
   #-#
   "WHOQOL_q10",
+  "v_whoqol_bref_question_10",
   "Do you have enough energy for everyday life?",
   #-#
   "WHOQOL_q11",
+  "v_whoqol_bref_question_11",
   "Are you able to accept your bodily appearance?",
   #-#
   "WHOQOL_q12",
+  "v_whoqol_bref_question_12",
   "Do you have enough money to meet your needs?",
   #-#
   "WHOQOL_q13",
+  "v_whoqol_bref_question_13",
   paste0("How available to you is the information that you need in your ",
          "day-to-day life?"),
   #-#
   "WHOQOL_q14",
+  "v_whoqol_bref_question_14",
   "To what extent do you have the opportunity for leisure activities?",
   #-#
   "WHOQOL_q15",
+  "v_whoqol_bref_question_15",
   "How well are you able to get around?",
   #-#
   "WHOQOL_q16",
+  "v_whoqol_bref_question_16",
   "How satisfied are you with your sleep?",
   #-#
   "WHOQOL_q17",
+  "v_whoqol_bref_question_17",
   paste0("How satisfied are you with your ability to perform your daily ",
          "living activities?"),
   #-#
   "WHOQOL_q18",
+  "v_whoqol_bref_question_18",
   "How satisfied are you with your capacity for work?",
   #-#
   "WHOQOL_q19",
+  "v_whoqol_bref_question_19",
   "How satisfied are you with yourself?",
   #-#
   "WHOQOL_q20",
+  "v_whoqol_bref_question_20",
   "How satisfied are you with your personal relationships?",
   #-#
   "WHOQOL_q21",
+  "v_whoqol_bref_question_21",
   "How satisfied are you with your sex life?",
   #-#
   "WHOQOL_q22",
+  "v_whoqol_bref_question_22",
   "How satisfied are you with the support you get from your friends?",
   #-#
   "WHOQOL_q23",
+  "v_whoqol_bref_question_23",
   "How satisfied are you with the conditions of your living place?",
   #-#
   "WHOQOL_q24",
+  "v_whoqol_bref_question_24",
   "How satisfied are you with your access to health services?",
   #-#
   "WHOQOL_q25",
+  "v_whoqol_bref_question_25",
   "How satisfied are you with your transport?",
   #-#
   "WHOQOL_q26",
+  "v_whoqol_bref_question_26",
   paste0("How often do you have negative feelings such as blue mood, ",
          "despair, anxiety, depression?")
 )
@@ -955,7 +1247,7 @@ dd_stem <- tribble(
 # dd_cats ----
 
 dd_cats <- tribble(
-  ~item, ~value,
+  ~variable, ~value,
 
   c(".META_visit_type"),
   c("S" = "screening",
@@ -1340,10 +1632,12 @@ dd_cats <- tribble(
 
 # cat(paste0('"', names(df_new_features), '"'), sep = ',\n"",\n#-#\n')
 
-data_dict <- dd_stem %>% left_join(dd_cats %>% unnest(cols = item), by = "item")
+# save data_dict ----
+data_dict <- dd_stem %>%
+  left_join(dd_cats %>% unnest(cols = variable), by = "variable")
 usethis::use_data(data_dict, overwrite = TRUE)
 
-# export to json
+# export to json ----
 json <- data_dict %>%
   mutate(code = map(value, ~names(.x))) %>%
   mutate(meaning = map(value, ~.x)) %>%
