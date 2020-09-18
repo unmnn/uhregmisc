@@ -30,92 +30,107 @@
   {
     "variable": "AUDIO_duration",
     "variable_original": "audiological_examination_duration",
-    "code": {},
-    "meaning": {}
+    "description": "Audiological examination: duration in seconds",
+    "code": ["-1"],
+    "meaning": ["no information"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_01",
     "variable_original": "audiological_examination_left_frequency_loss_1",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 125Hz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_02",
     "variable_original": "audiological_examination_left_frequency_loss_2",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 250Hz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_03",
     "variable_original": "audiological_examination_left_frequency_loss_3",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 500Hz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_04",
     "variable_original": "audiological_examination_left_frequency_loss_4",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 1kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_05",
     "variable_original": "audiological_examination_left_frequency_loss_5",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 2kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_06",
     "variable_original": "audiological_examination_left_frequency_loss_6",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 3kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_07",
     "variable_original": "audiological_examination_left_frequency_loss_7",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 4kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_08",
     "variable_original": "audiological_examination_left_frequency_loss_8",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 6kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_09",
     "variable_original": "audiological_examination_left_frequency_loss_9",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 8kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_10",
     "variable_original": "audiological_examination_left_frequency_loss_10",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 10kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_11",
     "variable_original": "audiological_examination_left_frequency_loss_11",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 11.2kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_12",
     "variable_original": "audiological_examination_left_frequency_loss_12",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 12.5kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_13",
     "variable_original": "audiological_examination_left_frequency_loss_13",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 14kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_frequency_loss_14",
     "variable_original": "audiological_examination_left_frequency_loss_14",
-    "code": {},
-    "meaning": {}
+    "description": "Left ear: hearing loss at frequency 16kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_hearing_loss",
@@ -127,24 +142,28 @@
   {
     "variable": "AUDIO_left_maximal_tinnitus_frequency",
     "variable_original": "audiological_examination_left_maximal_tinnitus_frequency",
-    "code": {},
-    "meaning": {}
+    "description": "Tinnitusmatching: left ear maximal frequency",
+    "code": ["999"],
+    "meaning": ["measurement was not done"]
   },
   {
     "variable": "AUDIO_left_minimal_masking_level",
     "variable_original": "audiological_examination_left_minimal_masking_level",
-    "code": {},
-    "meaning": {}
+    "description": "Minimal Masking Level: left ear MML",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_left_minimal_tinnitus_frequency",
     "variable_original": "audiological_examination_left_minimal_tinnitus_frequency",
-    "code": {},
-    "meaning": {}
+    "description": "Tinnitusmatching: left ear minimal frequency",
+    "code": ["999"],
+    "meaning": ["measurement was not done"]
   },
   {
     "variable": "AUDIO_left_tinntitus_type",
     "variable_original": "audiological_examination_left_tinntitus_type",
+    "description": "Tinnitusmatching: left ear tinnitus type",
     "code": {},
     "meaning": {}
   },
@@ -157,135 +176,156 @@
   {
     "variable": "AUDIO_residual_inhibition",
     "variable_original": "audiological_examination_residual_inhibition",
-    "code": {},
-    "meaning": {}
+    "description": "Residual inhibition",
+    "code": ["-1", "0", "1", "2"],
+    "meaning": ["no information", "partial", "complete", "duration [sec.]:"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_01",
     "variable_original": "audiological_examination_right_frequency_loss_1",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 125Hz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_02",
     "variable_original": "audiological_examination_right_frequency_loss_2",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 250Hz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_03",
     "variable_original": "audiological_examination_right_frequency_loss_3",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 500Hz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_04",
     "variable_original": "audiological_examination_right_frequency_loss_4",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 1kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_05",
     "variable_original": "audiological_examination_right_frequency_loss_5",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 2kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_06",
     "variable_original": "audiological_examination_right_frequency_loss_6",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 3kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_07",
     "variable_original": "audiological_examination_right_frequency_loss_7",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 4kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_08",
     "variable_original": "audiological_examination_right_frequency_loss_8",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 6kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_09",
     "variable_original": "audiological_examination_right_frequency_loss_9",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 8kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_10",
     "variable_original": "audiological_examination_right_frequency_loss_10",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 10kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_11",
     "variable_original": "audiological_examination_right_frequency_loss_11",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 11.2kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_12",
     "variable_original": "audiological_examination_right_frequency_loss_12",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 12.5kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_13",
     "variable_original": "audiological_examination_right_frequency_loss_13",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 14kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_frequency_loss_14",
     "variable_original": "audiological_examination_right_frequency_loss_14",
-    "code": {},
-    "meaning": {}
+    "description": "Right ear: hearing loss at frequency 16kHz",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_hearing_loss",
     "variable_original": "audiological_examination_right_hearing_loss",
+    "description": "Right ear: hearing loss",
     "code": ["-1", "0", "1", "2"],
     "meaning": ["no information", "normal (0-20 dB HL)", "AHZ (21-60 dB HL)", "IHZ (>60 dB HL)"]
   },
   {
     "variable": "AUDIO_right_maximal_tinnitus_frequency",
     "variable_original": "audiological_examination_right_maximal_tinnitus_frequency",
-    "code": {},
-    "meaning": {}
+    "description": "Tinnitusmatching: right ear maximal frequency",
+    "code": ["999"],
+    "meaning": ["measurement was not done"]
   },
   {
     "variable": "AUDIO_right_minimal_masking_level",
     "variable_original": "audiological_examination_right_minimal_masking_level",
-    "code": {},
-    "meaning": {}
+    "description": "Minimal Masking Level: right ear MML",
+    "code": ["888", "999"],
+    "meaning": ["measurement didn't yield a result", "measurement was not done"]
   },
   {
     "variable": "AUDIO_right_minimal_tinnitus_frequency",
     "variable_original": "audiological_examination_right_minimal_tinnitus_frequency",
-    "code": {},
-    "meaning": {}
+    "description": "Tinnitusmatching: right ear minimal frequency",
+    "code": ["999"],
+    "meaning": ["measurement was not done"]
   },
   {
     "variable": "AUDIO_right_tinnitus_type",
     "variable_original": "audiological_examination_right_tinnitus_type",
-    "code": {},
-    "meaning": {}
+    "description": "Tinnitusmatching: right ear tinnitus type",
+    "code": ["-1", "0", "1", "2", "3"],
+    "meaning": ["no information", "pure tone", "narrow band", "broad band", "not defineable"]
   },
   {
     "variable": "AUDIO_survey_participation_appropriateness",
     "variable_original": "audiological_examination_survey_participation_appropriateness",
-    "code": {},
-    "meaning": {}
+    "description": "Objective tinnitus or other excluding criteria?",
+    "code": ["0", "1"],
+    "meaning": ["YES", "NO"]
   },
   {
     "variable": "AUDIO_tinnitus_matching",
     "variable_original": "audiological_examination_tinnitus_matching",
     "description": "Location of tinnitus",
-    "code": {},
-    "meaning": {}
+    "code": ["-1", "0", "1", "2"],
+    "meaning": ["no information", "right", "left", "both sides"]
   },
   {
     "variable": "CGI_lvs",
