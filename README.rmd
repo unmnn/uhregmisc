@@ -120,6 +120,6 @@ data_dict %>% filter(variable == var) %>% pluck("value", 1)
 
 ## `uhreg` overview
 
-```{r uhreg-skim, cache = TRUE}
+```{r uhreg-skim, cache = FALSE}
 skimr::skim_without_charts(uhreg)
 ```
