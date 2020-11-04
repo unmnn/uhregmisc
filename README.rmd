@@ -82,27 +82,22 @@ The script `data-raw/uhreg.R` preprocesses the UHREG data.
 
 ## Open questions
 
-<!-- - Why are there no data for the BDI questionnaire? -->
-<!-- - What does the `position` column represent? -->
-
-<!-- ``` -->
-<!--    1    2    3 -->
-<!-- 2010  187  102 -->
-<!-- ``` -->
-
-<!-- - What does the prefix "v_" mean in some column names, e.g. "v_tfi_question_1"? -->
 - How to deal with the huge variety of treatment pathways?
 
 ```
-92 unique treatment pathways
+109 unique treatment pathways
 
-                        S-B-I-I-I-FV                               S-B-FV                            S-B-FV-FU
-                                  26                                   31                                   36
-                                B-FV                                    S
-                                  44                                  790
+                               S                         S-B-FV-FU 
+                              869                                38 
+                             FV-B                            S-B-FV 
+                               32                                24 
+                             B-FV                               S-S 
+                               22                                17 
+                     B-FV-I-I-I-S                     B-FV-FU-FU-FU 
+                               16                                15
 ```
 
-- Is there any documentation for the audiological assessment? There are a lot of negative values (e.g. -1 for AUDIO_duration) and "repdigits" (999, 99999) - I assume they have a special meaning.
+<!-- - Is there any documentation for the audiological assessment? There are a lot of negative values (e.g. -1 for AUDIO_duration) and "repdigits" (999, 99999) - I assume they have a special meaning. -->
 - What do the columns with "last_validation_status" mean? What do their values (-1, 0, 1) mean?
 - Documentation for "v_exp_tschq_q36_otologic" and "v_exp_tschq_q361_otologic_additional"
 

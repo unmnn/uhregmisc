@@ -91,34 +91,23 @@ The script `data-raw/uhreg.R` preprocesses the UHREG data.
 
 ## Open questions
 
-<!-- - Why are there no data for the BDI questionnaire? -->
-
-<!-- - What does the `position` column represent? -->
-
-<!-- ``` -->
-
-<!--    1    2    3 -->
-
-<!-- 2010  187  102 -->
-
-<!-- ``` -->
-
-<!-- - What does the prefix "v_" mean in some column names, e.g. "v_tfi_question_1"? -->
-
   - How to deal with the huge variety of treatment pathways?
 
 <!-- end list -->
 
-    92 unique treatment pathways
+    109 unique treatment pathways
     
-                            S-B-I-I-I-FV                               S-B-FV                            S-B-FV-FU
-                                      26                                   31                                   36
-                                    B-FV                                    S
-                                      44                                  790
+                                   S                         S-B-FV-FU 
+                                  869                                38 
+                                 FV-B                            S-B-FV 
+                                   32                                24 
+                                 B-FV                               S-S 
+                                   22                                17 
+                         B-FV-I-I-I-S                     B-FV-FU-FU-FU 
+                                   16                                15
 
-  - Is there any documentation for the audiological assessment? There
-    are a lot of negative values (e.g. -1 for AUDIO\_duration) and
-    “repdigits” (999, 99999) - I assume they have a special meaning.
+<!-- - Is there any documentation for the audiological assessment? There are a lot of negative values (e.g. -1 for AUDIO_duration) and "repdigits" (999, 99999) - I assume they have a special meaning. -->
+
   - What do the columns with “last\_validation\_status” mean? What do
     their values (-1, 0, 1) mean?
   - Documentation for “v\_exp\_tschq\_q36\_otologic” and
@@ -138,18 +127,18 @@ data_dict
 ```
 
     ## # A tibble: 294 x 4
-    ##    variable        variable_original          description            value 
-    ##    <chr>           <chr>                      <chr>                  <list>
-    ##  1 .META_patient_~ new_ID                     Patient ID             <NULL>
-    ##  2 .META_treatmen~ treatment_code             Treatment code         <chr ~
-    ##  3 .META_visit_day visit_day                  Day of visit           <NULL>
-    ##  4 .META_visit_ty~ visit_type                 Type of visit          <chr ~
-    ##  5 AUDIO_duration  audiological_examination_~ Audiological examinat~ <chr ~
-    ##  6 AUDIO_left_fre~ audiological_examination_~ Left ear: hearing los~ <chr ~
-    ##  7 AUDIO_left_fre~ audiological_examination_~ Left ear: hearing los~ <chr ~
-    ##  8 AUDIO_left_fre~ audiological_examination_~ Left ear: hearing los~ <chr ~
-    ##  9 AUDIO_left_fre~ audiological_examination_~ Left ear: hearing los~ <chr ~
-    ## 10 AUDIO_left_fre~ audiological_examination_~ Left ear: hearing los~ <chr ~
+    ##    variable         variable_original            description              value 
+    ##    <chr>            <chr>                        <chr>                    <list>
+    ##  1 .META_patient_id new_ID                       Patient ID               <NULL>
+    ##  2 .META_treatment~ treatment_code               Treatment code           <chr ~
+    ##  3 .META_visit_day  visit_day                    Day of visit             <NULL>
+    ##  4 .META_visit_type visit_type                   Type of visit            <chr ~
+    ##  5 AUDIO_duration   audiological_examination_du~ Audiological examinatio~ <chr ~
+    ##  6 AUDIO_left_freq~ audiological_examination_le~ Left ear: hearing loss ~ <chr ~
+    ##  7 AUDIO_left_freq~ audiological_examination_le~ Left ear: hearing loss ~ <chr ~
+    ##  8 AUDIO_left_freq~ audiological_examination_le~ Left ear: hearing loss ~ <chr ~
+    ##  9 AUDIO_left_freq~ audiological_examination_le~ Left ear: hearing loss ~ <chr ~
+    ## 10 AUDIO_left_freq~ audiological_examination_le~ Left ear: hearing loss ~ <chr ~
     ## # ... with 284 more rows
 
 ``` r
