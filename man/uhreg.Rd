@@ -5,7 +5,7 @@
 \alias{uhreg}
 \title{University of Regensburg (UHREG) tinnitus data.}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2299 rows and 295 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2350 rows and 295 columns.
 }
 \usage{
 uhreg

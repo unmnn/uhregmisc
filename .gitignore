@@ -41,6 +41,7 @@ vignettes/*.pdf
 
 # regensburg data
 200622_uhreg.xlsx
+anonymised_RBG_28102020.csv
 uhreg.rda
 
 # app-ume

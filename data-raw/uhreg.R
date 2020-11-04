@@ -1,7 +1,9 @@
 library(tidyverse)
 library(readxl)
 # options(dplyr.summarise.inform=F)
-df <- read_xlsx("data-raw/200622_uhreg.xlsx")
+# df <- read_xlsx("data-raw/200622_uhreg.xlsx")
+df <- read_csv("data-raw/anonymised_RBG_28102020.csv",
+               na = c("N/A"))
 
 # Select and rename relevant columns ----
 df_col <- df %>%
@@ -71,11 +73,14 @@ df_alpha <- df_col[sort(names(df_col))]
 
 # Convert variables to correct type where necessary and declare missing values ----
 df_alpha %>%
+  mutate(across(where(lubridate::is.Date), as.character)) %>%
   mutate(across(where(is.double), as.integer)) %>%
   mutate(TSCHQ_q02_sex = case_when(TSCHQ_q02_sex == "m" ~ 0L,
                                    TSCHQ_q02_sex == "f" ~ 1L,
                                    TRUE ~ NA_integer_)) %>%
   mutate(.META_patient_id = as.character(.META_patient_id)) %>%
+  # mutate(across(c(TSCHQ_q05_begin_tinnitus, .META_visit_day),
+  #               ~ format(.x, "%Y-%m-%d"))) %>%
   mutate(across(c(TSCHQ_q05_begin_tinnitus), ~ if_else(.x == "0000-00-00", NA_character_, .x))) %>%
   # some months and days are provided as "00" -> set as January or first of month, respectively
   mutate(across(c(TSCHQ_q05_begin_tinnitus), ~ str_replace_all(.x, "-00", "-01"))) %>%
